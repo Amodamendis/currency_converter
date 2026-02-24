@@ -1,0 +1,703 @@
+/* ==========================================
+   CURRENCY CONVERTER - MAIN STYLESHEET
+   ========================================== */
+
+/* Import Google Font for modern typography */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* ==========================================
+   GLOBAL RESET AND BASE STYLES
+   ========================================== */
+
+/* Reset all default margins, paddings, and apply consistent box-sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Main body styling with centered layout and background */
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: url("bg2.jpg") #030728 no-repeat center;
+  background-size: cover;
+}
+
+/* Root container for the entire application */
+#root {
+  width: 100%;
+  position: relative;
+}
+
+/* ==========================================
+   DATE & TIME DISPLAY COMPONENTS
+   ========================================== */
+
+/* Container for date and time displays - fixed to top-right corner */
+.datetime-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000; /* Ensure it stays above other elements */
+}
+
+/* Time display box - larger and more prominent */
+.time-display {
+  margin-top: 30px;
+  backdrop-filter: blur(0px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  padding: 20px 30px;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  min-width: 200px;
+}
+
+/* Main time text styling */
+.time-text {
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Timezone label styling */
+.timezone-text {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Date display box - smaller and positioned below time */
+.date-display {
+  backdrop-filter: blur(0px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  padding: 12px 20px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  min-width: 150px;
+  margin-left: auto;
+}
+
+/* Date text styling */
+.date-text {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* ==========================================
+   MAIN APPLICATION LAYOUT
+   ========================================== */
+
+/* Container for side-by-side layout of converter and history */
+.app-container {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* ==========================================
+   CURRENCY CONVERTER SECTION
+   ========================================== */
+
+/* Main converter container with glassmorphism effect */
+.currency-converter {
+  max-width: 410px;
+  min-width: 410px;
+  padding: 40px 30px 50px;
+  border-radius: 8px;
+  backdrop-filter: blur(0px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+/* Converter title styling */
+.currency-converter .converter-title {
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Main form container */
+.currency-converter .converter-form {
+  margin-top: 45px;
+}
+
+/* ==========================================
+   FORM STYLING
+   ========================================== */
+
+/* Basic form group layout */
+.converter-form .form-group {
+  display: flex;
+  margin-bottom: 30px;
+  flex-direction: column;
+}
+
+/* Form labels styling */
+.converter-form .form-group .form-label {
+  color: #fff;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 9px;
+  font-size: 1rem;
+}
+
+/* Input field styling with glassmorphism effect */
+.converter-form .form-group .form-input {
+  outline: none;
+  font-size: 1.1rem;
+  padding: 0 15px;
+  color: #fff;
+  font-weight: 500;
+  min-height: 48px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Currency selection group - horizontal layout */
+.converter-form .form-currency-group {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Individual currency selector container */
+.form-currency-group .currency-select {
+  display: flex;
+  padding: 0 10px;
+  min-height: 45px;
+  align-items: center;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  min-width: 120px;
+}
+
+/* Flag image styling */
+.form-currency-group .currency-select img {
+  width: 25px;
+  height: auto;
+  flex-shrink: 0; /* Prevent flag image from shrinking */
+}
+
+/* Currency dropdown styling */
+.form-currency-group .currency-select .currency-dropdown {
+  outline: none;
+  border: none;
+  background: none;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0 10px 0 5px;
+  min-width: 70px;
+}
+
+/* Dropdown options styling */
+.form-currency-group .currency-select .currency-dropdown option {
+  color: #000;
+  font-weight: 500;
+}
+
+/* Currency swap button styling */
+.form-currency-group .swap-icon {
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+  display: flex;
+  margin-top: 25px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transition: 0.2s ease;
+  flex-shrink: 0;
+}
+
+/* Swap button hover effect */
+.form-currency-group .swap-icon:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* ==========================================
+   FORM SUBMISSION AND RESULTS
+   ========================================== */
+
+/* Submit button styling */
+.converter-form .submit-button {
+  width: 100%;
+  min-height: 52px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 5px;
+  transition: 0.2s ease;
+}
+
+/* Loading state for submit button */
+.converter-form .submit-button.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Submit button hover effect */
+.converter-form .submit-button:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+/* Exchange rate result display */
+.converter-form .exchange-rate-result {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 25px 15px;
+  margin-top: 25px;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+  background: rgba(255, 255, 255, 0.15);
+  word-break: break-word; /* Allow long currency names to wrap */
+  line-height: 1.3;
+}
+
+/* ==========================================
+   CONVERSION HISTORY SECTION
+   ========================================== */
+
+/* Main history container with fixed dimensions */
+.conversion-history {
+  height: 510px;
+  width: 320px;
+  padding: 30px 25px;
+  border-radius: 8px;
+  backdrop-filter: blur(0px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* History header section */
+.history-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 25px;
+  flex-shrink: 0;
+}
+
+/* History section title */
+.history-title {
+  color: #fff;
+  margin-left: 28px;
+  margin-top: 14px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  flex-shrink: 0;
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* Clear history button styling */
+.clear-history-btn {
+  background: rgba(255, 59, 48, 0.8);
+  color: #fff;
+  border: none;
+  margin-top: 8px;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s ease;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* Clear button hover effect */
+.clear-history-btn:hover {
+  background: rgba(255, 59, 48, 1);
+}
+
+/* Scrollable content area for history items */
+.history-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 5px;
+}
+
+/* Empty history state message */
+.no-history {
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  font-size: 1rem;
+  padding: 40px 20px;
+}
+
+/* History items container */
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-right: 5px;
+}
+
+/* Individual history item styling */
+.history-item {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  padding: 15px;
+  transition: 0.2s ease;
+  width: 100%;
+  min-height: 70px;
+  flex-shrink: 0;
+}
+
+/* History item hover effect */
+.history-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Conversion details container */
+.conversion-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+/* Main conversion text */
+.conversion-main {
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.3;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Conversion timestamp */
+.conversion-time {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.8rem;
+  font-weight: 400;
+  flex-shrink: 0;
+}
+
+/* ==========================================
+   SCROLLBAR CUSTOMIZATION
+   ========================================== */
+
+/* Custom scrollbar for history content */
+.history-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.history-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.history-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.history-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN - MOBILE STYLES
+   ========================================== */
+
+/* Mobile breakpoint styles */
+@media (max-width: 640px) {
+  body {
+    padding: 0 10px;
+  }
+  
+  /* Reposition datetime on mobile */
+  .datetime-container {
+    position: static;
+    order: -1;
+    margin-bottom: 15px;
+    align-items: center;
+    margin-top: 60px;
+  }
+  
+  /* Remove fixed positioning on mobile */
+  .time-display,
+  .date-display {
+    margin-left: 0;
+    margin-top: 60px;
+  }
+  
+  /* Stack components vertically on mobile */
+  .app-container {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  /* Adjust converter for mobile */
+  .currency-converter {
+    padding: 30px 20px 40px;
+    max-width: 100%;
+    min-width: unset;
+  }
+  
+  /* Adjust history section for mobile */
+  .conversion-history {
+    width: 300px;
+    height: 400px;
+  }
+  
+  /* Stack history header items */
+  .history-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  /* Allow title to wrap on mobile */
+  .history-title {
+    white-space: normal;
+  }
+}
+/* ==========================================
+   OFFLINE INDICATOR STYLES
+   ========================================== */
+
+/* Main offline indicator container - fixed to top-left */
+.offline-indicator {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1001;
+  min-width: 250px;
+  max-width: 320px;
+}
+
+/* Main status display */
+.status-display {
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-left: 4px solid #4CAF50;
+  border-radius: 8px;
+  padding: 12px 15px;
+  background: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.status-display:hover {
+  background: rgba(0, 0, 0, 0.8);
+  transform: translateY(-1px);
+}
+
+/* Status icon */
+.status-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+/* Status content */
+.status-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.status-text {
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.status-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.7rem;
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Status toggle arrow */
+.status-toggle {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.8rem;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+/* Cache details expandable section */
+.cache-details {
+  margin-top: 8px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.6);
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Cache information */
+.cache-info {
+  margin-bottom: 12px;
+}
+
+.cache-stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  font-size: 0.8rem;
+}
+
+.cache-label {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+}
+
+.cache-value {
+  color: #fff;
+  font-weight: 600;
+}
+
+.cache-value.expired {
+  color: #FF6B6B;
+}
+
+.cache-value.fresh {
+  color: #4CAF50;
+}
+
+/* Cache control buttons */
+.cache-controls {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.cache-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex: 1;
+  min-width: 0;
+}
+
+.online-btn {
+  background: #4CAF50;
+  color: #fff;
+}
+
+.online-btn:hover {
+  background: #45a049;
+}
+
+.offline-btn {
+  background: #FFA500;
+  color: #fff;
+}
+
+.offline-btn:hover {
+  background: #e69500;
+}
+
+.clear-btn {
+  background: rgba(255, 59, 48, 0.8);
+  color: #fff;
+}
+
+.clear-btn:hover {
+  background: rgba(255, 59, 48, 1);
+}
+
+/* Mobile responsive adjustments for offline indicator */
+@media (max-width: 640px) {
+  .offline-indicator {
+    position: relative;
+    top: auto;
+    left: auto;
+    order: -2;
+    margin-bottom: 15px;
+    min-width: unset;
+    max-width: unset;
+  }
+  
+  .status-display {
+    padding: 10px 12px;
+  }
+  
+  .status-text {
+    font-size: 0.85rem;
+  }
+  
+  .status-subtitle {
+    font-size: 0.65rem;
+  }
+  
+  .cache-details {
+    padding: 12px;
+  }
+  
+  .cache-controls {
+    flex-direction: column;
+  }
+  
+  .cache-btn {
+    flex: none;
+  }
+}
