@@ -137,7 +137,7 @@ const App = () => {
         */}
         <div className="currency-converter">
           {/* Main title of the application */}
-          <h2 className="converter-title">Currency Converter</h2>
+          <h2 className="converter-title">Currency Converter modified</h2>
           
           {/* 
             Currency Conversion Form Component
