@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 20
+    commands:
+      - echo installing dependencies...
+      - npm ci --legacy-peer-deps
+
+  build:
+    commands:
+      - echo Building the React app
+      - npm run Build
+
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: dist
+  discard-paths: no
+
+
